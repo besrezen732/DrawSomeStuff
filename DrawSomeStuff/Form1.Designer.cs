@@ -69,19 +69,19 @@
             // открытьToolStripMenuItem
             // 
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.открытьToolStripMenuItem.Text = "Открыть";
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             // 
             // выйтиToolStripMenuItem
             // 
             this.выйтиToolStripMenuItem.Name = "выйтиToolStripMenuItem";
-            this.выйтиToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
+            this.выйтиToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.выйтиToolStripMenuItem.Text = "Выйти";
             // 
             // toolStrip1
