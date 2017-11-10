@@ -23,3 +23,11 @@ E:\Проекты\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csproj
 E:\Проекты\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csproj.CoreCompileInputs.cache
 E:\Проекты\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.exe
 E:\Проекты\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.pdb
+E:\Проекты\DrawGerber\DrawSomeStuff\bin\Debug\DrawSomeStuff.exe
+E:\Проекты\DrawGerber\DrawSomeStuff\bin\Debug\DrawSomeStuff.pdb
+E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.laptop.resources
+E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.Properties.Resources.resources
+E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csproj.GenerateResource.Cache
+E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csproj.CoreCompileInputs.cache
+E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.exe
+E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.pdb
