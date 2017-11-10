@@ -1,0 +1,25 @@
+c:\users\kurnikovis\documents\visual studio 2010\Projects\DrawSomeStuff\DrawSomeStuff\bin\Debug\DrawSomeStuff.exe
+c:\users\kurnikovis\documents\visual studio 2010\Projects\DrawSomeStuff\DrawSomeStuff\bin\Debug\DrawSomeStuff.pdb
+c:\users\kurnikovis\documents\visual studio 2010\Projects\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.Form1.resources
+c:\users\kurnikovis\documents\visual studio 2010\Projects\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.Properties.Resources.resources
+c:\users\kurnikovis\documents\visual studio 2010\Projects\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csproj.GenerateResource.Cache
+c:\users\kurnikovis\documents\visual studio 2010\Projects\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.exe
+c:\users\kurnikovis\documents\visual studio 2010\Projects\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.pdb
+C:\Users\admin\Desktop\DrawSomeStuff\DrawSomeStuff\bin\Debug\DrawSomeStuff.exe
+C:\Users\admin\Desktop\DrawSomeStuff\DrawSomeStuff\bin\Debug\DrawSomeStuff.pdb
+C:\Users\admin\Desktop\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.Form1.resources
+C:\Users\admin\Desktop\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.Properties.Resources.resources
+C:\Users\admin\Desktop\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csproj.GenerateResource.Cache
+C:\Users\admin\Desktop\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.exe
+C:\Users\admin\Desktop\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.pdb
+E:\Проекты\DrawSomeStuff\DrawSomeStuff\bin\Debug\DrawSomeStuff.exe
+E:\Проекты\DrawSomeStuff\DrawSomeStuff\bin\Debug\DrawSomeStuff.pdb
+E:\Проекты\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csprojResolveAssemblyReference.cache
+E:\Проекты\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.laptop.resources
+E:\Проекты\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.Properties.Resources.resources
+E:\Проекты\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csproj.GenerateResource.Cache
+E:\Проекты\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csproj.CoreCompileInputs.cache
+E:\Проекты\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.exe
+E:\Проекты\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.pdb
