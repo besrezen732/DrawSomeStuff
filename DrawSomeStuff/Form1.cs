@@ -9,6 +9,7 @@ namespace DrawSomeStuff
         Graphics gr;
         Pen pen;
         SolidBrush brush;
+        private string stringFile;
 
         public laptop()
         {
@@ -63,13 +64,27 @@ namespace DrawSomeStuff
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var service = new Helper();
-            richTextBox1.Text = service.OpenFile(richTextBox1,pictureBox);
+            stringFile = service.OpenFile(pictureBox, richTextBox1);
+            //richTextBox1.Text = stringFile;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             var service = new Helper();
-            richTextBox1.Text = service.OpenFile(richTextBox1, pictureBox);
+            stringFile = service.OpenFile(pictureBox, richTextBox1);
+            //richTextBox1.Text = stringFile;
+        }
+
+        private int _numberOfstring = 0;
+
+        private void readOneString_Click(object sender, EventArgs e)
+        {
+            var service = new Helper();
+            string oneString = service.GetOneString(stringFile, _numberOfstring);
+            richTextBox1.Text += oneString + '\n';
+            _numberOfstring++;
+            if (oneString == "Конец файла")
+                readOneString.Enabled = false;
         }
     }
 }

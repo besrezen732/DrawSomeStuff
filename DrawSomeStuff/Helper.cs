@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Net.Mime;
 using System.Text;
 using System.Windows.Forms;
 
@@ -7,7 +8,7 @@ namespace DrawSomeStuff
 {
     class Helper
     {
-        public string OpenFile(RichTextBox richTextBox1, PictureBox pictureBox)
+        public string OpenFile(PictureBox pictureBox = null, RichTextBox richTextBox1 = null)
         {
             string res = String.Empty;
             OpenFileDialog openGerber = new OpenFileDialog();
@@ -28,6 +29,13 @@ namespace DrawSomeStuff
                 pictureBox.Visible = true;
             }
             return res;
+        }
+
+        public string GetOneString(string strFile, int numberOfString)
+        {
+            string[] oneString = strFile.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            int maxNumber = oneString.Length;
+            return (numberOfString > maxNumber-1)? "Конец файла": oneString[numberOfString];
         }
     }
 }

@@ -31,3 +31,4 @@ E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csproj.Ge
 E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csproj.CoreCompileInputs.cache
 E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.exe
 E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.pdb
+E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csprojResolveAssemblyReference.cache

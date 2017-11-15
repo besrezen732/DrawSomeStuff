@@ -63,6 +63,16 @@ namespace DrawSomeStuff.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap plata {
+            get {
+                object obj = ResourceManager.GetObject("plata", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap savePicture {
             get {
                 object obj = ResourceManager.GetObject("savePicture", resourceCulture);
