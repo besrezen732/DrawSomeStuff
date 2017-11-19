@@ -86,5 +86,7 @@ namespace DrawSomeStuff
             if (oneString == "Конец файла")
                 readOneString.Enabled = false;
         }
+
+       
     }
 }
