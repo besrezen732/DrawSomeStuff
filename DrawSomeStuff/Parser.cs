@@ -10,12 +10,20 @@ namespace DrawSomeStuff
     class Parser
     {
         public Dictionary<string, string> dictionaryCommand = new Dictionary<string, string> {
-            //выборка взята ради примера из LK3, по хорошему можно на базу данных переписать
-                { "Наименование", "name" },
-                { "ТорговаяМарка", "mark" },
-                { "Страна", "counry" },
-                { "ДатаПодписания", "date" },
-                { "ТорговаяМаркаЛат", "mark_lat" } };
+                { "G", "" },//дуги
+                { "MOIN", "" },//дюймы
+                { "MOMM", "" },//милиметры
+                //%OFA0B0*%
+                { "FSLA", "" },//подавление ведущих нулей
+                { "LPD", "" },//Слои
+                { "LPC", "" },//Слои
+                //%AMOC8*
+                //5,1,8,0,0,1.08239X$1,22.5*
+                //%
+                { "ADD", "" },
+                { "D", "" },
+                {"M","" }
+        };
        
             public void ParseOneStringDraw(string onestring,int paramX,int paramY, ref int x, ref int y, ref int d)
         {
@@ -28,15 +36,6 @@ namespace DrawSomeStuff
             x = Convert.ToInt32(onestring.Substring(posXinStr, posYinStr- posXinStr));
             y = Convert.ToInt32(onestring.Substring(posYinStr, posDinStr - posYinStr));
             d = Convert.ToInt32(onestring.Substring(posDinStr, Length - posDinStr));
-        }
-
-        public void GetCommandForParse(string command)
-        {
-           //var resCommand  = dictionaryCommand.Where(itt=>(command.Contains(itt.Key))).FirstOrDefault().Value;
-           // switch (resCommand)
-           //     case :// тут выборка по командам и запускам парсеров для обработки 
-
-            
         }
     }
 }
