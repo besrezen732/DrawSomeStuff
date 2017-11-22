@@ -32,3 +32,11 @@ E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csproj.Co
 E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.exe
 E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.pdb
 E:\Проекты\DrawGerber\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csprojResolveAssemblyReference.cache
+C:\Users\БГ\Documents\DrawSomeStuff\DrawSomeStuff\bin\Debug\DrawSomeStuff.exe
+C:\Users\БГ\Documents\DrawSomeStuff\DrawSomeStuff\bin\Debug\DrawSomeStuff.pdb
+C:\Users\БГ\Documents\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csprojResolveAssemblyReference.cache
+C:\Users\БГ\Documents\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.laptop.resources
+C:\Users\БГ\Documents\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.Properties.Resources.resources
+C:\Users\БГ\Documents\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.csproj.GenerateResource.Cache
+C:\Users\БГ\Documents\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.exe
+C:\Users\БГ\Documents\DrawSomeStuff\DrawSomeStuff\obj\x86\Debug\DrawSomeStuff.pdb
