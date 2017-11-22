@@ -79,12 +79,17 @@ namespace DrawSomeStuff
 
         private void readOneString_Click(object sender, EventArgs e)
         {
-            var service = new Helper();
-            string oneString = service.GetOneString(stringFile, _numberOfstring);
-            richTextBox1.Text += oneString + '\n';
-            _numberOfstring++;
-            if (oneString == "Конец файла")
-                readOneString.Enabled = false;
+            if (stringFile == null)
+                MessageBox.Show("Выберите файл для обработки");
+            else
+            {
+                var service = new Helper();
+                string oneString = service.GetOneString(stringFile, _numberOfstring);
+                richTextBox1.Text += oneString + '\n';
+                _numberOfstring++;
+                if (oneString == "Конец файла")
+                    readOneString.Enabled = false;
+            }
         }
 
        
