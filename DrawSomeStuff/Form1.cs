@@ -80,7 +80,10 @@ namespace DrawSomeStuff
         private void readOneString_Click(object sender, EventArgs e)
         {
             var service = new Helper();
+            Parser parsString = new Parser();
+
             string oneString = service.GetOneString(stringFile, _numberOfstring);
+            parsString.Parse(oneString);
             richTextBox1.Text += oneString + '\n';
             _numberOfstring++;
             if (oneString == "Конец файла")
