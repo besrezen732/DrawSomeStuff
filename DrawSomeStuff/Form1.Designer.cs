@@ -139,7 +139,6 @@
             this.tsbDraw.Name = "tsbDraw";
             this.tsbDraw.Size = new System.Drawing.Size(24, 24);
             this.tsbDraw.Text = "Рисовать";
-            this.tsbDraw.Click += new System.EventHandler(this.tsbDraw_Click);
             // 
             // readOneString
             // 

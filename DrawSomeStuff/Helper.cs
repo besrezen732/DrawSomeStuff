@@ -8,12 +8,12 @@ namespace DrawSomeStuff
 {
     class Helper
     {
-        public string OpenFile(PictureBox pictureBox = null, RichTextBox richTextBox1 = null)
+        public string OpenFile(PictureBox pictureBox = null, RichTextBox richTextBox1 = null, ToolStripButton readOneString = null,  ToolStripButton tsbDraw = null)
         {
             string res = String.Empty;
             OpenFileDialog openGerber = new OpenFileDialog();
             openGerber.InitialDirectory = @"C:\";
-            openGerber.Filter = @"gbr files (*.gbr)|*.gbr|All files (*.*)|*.*";
+            openGerber.Filter = @"gbr files (*.grb)|*.grb|All files (*.*)|*.*";
             openGerber.FilterIndex = 2;
             openGerber.RestoreDirectory = true;
             if (openGerber.ShowDialog() == DialogResult.OK)
@@ -27,6 +27,11 @@ namespace DrawSomeStuff
                 res = Encoding.ASCII.GetString(result);
                 richTextBox1.Visible = true;
                 pictureBox.Visible = true;
+                if (res != String.Empty)
+                {
+                    readOneString.Enabled = true;
+                    tsbDraw.Enabled = true;
+                }
             }
             return res;
         }

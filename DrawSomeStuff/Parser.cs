@@ -30,7 +30,11 @@ namespace DrawSomeStuff
         void G02(string command){}
         void G03(string command){}
         void G74(string command){}
-        void G75(string command){}
+
+        void G75(string command)
+        {
+            int i = 10;
+        }
         void LP(string command){}
         void LM(string command){}
         void LR(string command){}
@@ -45,7 +49,7 @@ namespace DrawSomeStuff
         void TD(string command){}
         void M02(string command){}
 
-        public void Parse(string command)
+        public void Parse(string command)// для текущего тз остальные будут добавлены позже или вообще никогда
         {
             var dictionaryCommands = new Dictionary<string, ParseGcommand>
             {
@@ -60,8 +64,7 @@ namespace DrawSomeStuff
                 {"AD", AD},
                 {"AM", AM}
             };
-
-
+            ParseGcommand parseGcommand = dictionaryCommands.FirstOrDefault(it=> command.Contains(it.Key)).Value;
         }
 
         public void ParseOneStringDraw(string onestring, int paramX, int paramY, ref int x, ref int y, ref int d)
