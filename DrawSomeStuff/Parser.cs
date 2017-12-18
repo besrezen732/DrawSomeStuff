@@ -32,8 +32,6 @@ namespace DrawSomeStuff
        
         private bool _isMm = false; // милиметры или дюймы
 
-        public int i = 0;
-
         #region DelegateList //список делегатов
 
         delegate void ParseGcommand(string command);
@@ -83,9 +81,21 @@ namespace DrawSomeStuff
         void AM(string command) { }
         void AB(string command) { }
         void Dnn(string command) { } //(nn≥10)
-        void D01(string command) { }
-        void D02(string command) { }
-        void D03(string command) { }
+
+        void D01(string command)
+        {
+            
+        }
+
+        void D02(string command)
+        {
+            
+        }
+
+        void D03(string command)
+        {
+            
+        }
         void G01(string command) { }
         void G02(string command) { }
         void G03(string command) { }
@@ -94,7 +104,6 @@ namespace DrawSomeStuff
         void G75(string command)
         {
             //выбор квадранта для отображения (рисуем в 1 координатной плоскости или во всех 4 х)
-            i = 10;// тест
         }
         void LP(string command) { }
         void LM(string command) { }
@@ -134,7 +143,11 @@ namespace DrawSomeStuff
                 {@"LPC", LP},
                 {@"AD", AD},
                 {@"AM", AM},
-                {@"D", D}
+                {@"D01", D01},
+                {@"D02", D02},
+                {@"D03", D03},
+                {@"D", D}//по хорошему нужно проверять что строка начинается с D, а пока такой хардкод
+
             };
             var keyCommandString = dictionaryCommands.FirstOrDefault(it => command.Contains(it.Key)).Value;
             if (keyCommandString != null)
