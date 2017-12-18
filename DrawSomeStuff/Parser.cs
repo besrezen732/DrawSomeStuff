@@ -7,8 +7,41 @@ using System.Windows.Forms;
 
 namespace DrawSomeStuff
 {
+
     class Parser
     {
+        Graphics gr;
+        TextBox tBox;
+        int posX, posY;
+        int max = 0;
+        public Parser()
+        {
+           // gr = graphics;
+           // tBox = text;
+            //gr.FillRectangle(new SolidBrush(Color.DarkRed), 0, 0, 500, 500);
+
+            Aperture ap = new Aperture();
+            ap.radEx = 10;
+            ap.color = Color.Red;
+            curAper = ap;
+        }
+
+        Dictionary<string, Aperture> aperDict = new Dictionary<string, Aperture>();
+        Aperture curAper;
+        struct Aperture
+        {
+            public int type;
+            public int numberSide;
+            public float radEx;
+            public float radIn;
+            public Color color;
+        }
+        // переменные для  изменения  в void парсерах 
+       
+        private bool _isMm = false; //
+
+
+        public int i = 0;
         //список делегатов
         delegate void ParseGcommand(string command);
 
@@ -18,8 +51,43 @@ namespace DrawSomeStuff
 
         //формат команд официальной спецификации 
         void FS(string command){}
-        void MO(string command){}
-        void AD(string command){}
+
+        void MO(string command)
+        {
+            if (command.Contains(@"MOIN"))
+                _isMm = false;
+            if (command.Contains("MOMM"))
+                _isMm = true;
+        }
+
+        void AD(string command)// задаем параметры апертур
+        {
+            string name = command.Substring(3, 3);
+            Aperture ap = new Aperture();
+            string type = command.Substring(6, 1);
+            if (type == "C")//круг
+            {
+                ap.type = 1;
+                string radius = command.Substring(11, 3);
+                ap.radEx = Convert.ToSingle(radius);
+            }
+            if (type == "R")//квадрат
+            {
+                ap.type = 2;
+                string line = command.Substring(11, 3);
+                ap.radEx = Convert.ToSingle(line);
+            }
+            if (command.Substring(6, 2) == "OC")//многогранник после ОС число граней
+            {
+                ap.type = 3;
+                ap.numberSide = Convert.ToInt32(command.Substring(8, 1));
+                string line = command.Substring(13, 3);
+                ap.radEx = Convert.ToSingle(line);
+            }
+            ap.color = Color.Black;
+
+            aperDict.Add(name, ap);
+        }
         void AM(string command){}
         void AB(string command){}
         void Dnn(string command){} //(nn≥10)
@@ -33,7 +101,8 @@ namespace DrawSomeStuff
 
         void G75(string command)
         {
-            int i = 10;
+            //выбор квадранта для отображения (рисуем в 1 координатной плоскости или во всех 4 х)
+            i = 10;// тест
         }
         void LP(string command){}
         void LM(string command){}
@@ -49,22 +118,35 @@ namespace DrawSomeStuff
         void TD(string command){}
         void M02(string command){}
 
+        void D(string command)
+        {
+            command = command.Substring(0, 3);
+            curAper = aperDict[command];
+        }
+
         public void Parse(string command)// для текущего тз остальные будут добавлены позже или вообще никогда
         {
             var dictionaryCommands = new Dictionary<string, ParseGcommand>
             {
-                {"G75", G75},
-                {"MOIN", MO},
-                {"OF", OF},
-                {"FSLA", FSLA},
-                {"IPPOS", IP},
-                {"IPNEG", IP},
-                {"LPD", LP},
-                {"LPC", LP},
-                {"AD", AD},
-                {"AM", AM}
+                {@"G75", G75},
+                {@"MOIN", MO},
+                {@"OF", OF},
+                {@"FSLA", FSLA},
+                {@"IPPOS", IP},
+                {@"IPNEG", IP},
+                {@"LPD", LP},
+                {@"LPC", LP},
+                {@"AD", AD},
+                {@"AM", AM},
+                {@"D", D}
             };
-            ParseGcommand parseGcommand = dictionaryCommands.FirstOrDefault(it=> command.Contains(it.Key)).Value;
+            var keyCommandString = dictionaryCommands.FirstOrDefault(it => command.Contains(it.Key)).Value;
+            if (keyCommandString != null)
+            {
+                var parse = new ParseGcommand(keyCommandString);
+                parse(command);
+            }
+
         }
 
         public void ParseOneStringDraw(string onestring, int paramX, int paramY, ref int x, ref int y, ref int d)

@@ -6,6 +6,7 @@ namespace DrawSomeStuff
 {
     public partial class laptop : Form
     {
+        Parser _Parser;
         Graphics gr;
         Pen pen;
         SolidBrush brush;
@@ -26,6 +27,7 @@ namespace DrawSomeStuff
             gr = pictureBox.CreateGraphics();
             pen = new Pen(Color.Black, 3);
             brush = new SolidBrush(Color.Black);
+            _Parser = new Parser();
         }
 
         
@@ -33,6 +35,7 @@ namespace DrawSomeStuff
         {
             //drawGraphics();
         }
+        
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -52,18 +55,14 @@ namespace DrawSomeStuff
 
         private void readOneString_Click(object sender, EventArgs e)
         {
-            
             var service = new Helper();
-            Parser parsString = new Parser();
 
             string oneString = service.GetOneString(stringFile, _numberOfstring);
-            parsString.Parse(oneString);
+            _Parser.Parse(oneString);
             richTextBox1.Text += oneString + '\n';
             _numberOfstring++;
             if (oneString == "Конец файла")
                 readOneString.Enabled = false;
         }
-
-       
     }
 }
