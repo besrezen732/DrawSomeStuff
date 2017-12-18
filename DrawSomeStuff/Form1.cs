@@ -39,6 +39,8 @@ namespace DrawSomeStuff
         {
             var service = new Helper();
             stringFile = service.OpenFile(pictureBox, richTextBox1, readOneString,tsbDraw);
+            _numberOfstring = 0;
+            _gerberParser.ClearDictionaryAperture();
             //richTextBox1.Text = stringFile;
         }
 
@@ -46,10 +48,12 @@ namespace DrawSomeStuff
         {
             var service = new Helper();
             stringFile = service.OpenFile(pictureBox, richTextBox1, readOneString, tsbDraw);
+            _gerberParser.ClearDictionaryAperture();
+            _numberOfstring = 0;
             //richTextBox1.Text = stringFile;
         }
 
-        private int _numberOfstring = 0;
+        private int _numberOfstring;
 
         private void readOneString_Click(object sender, EventArgs e)
         {

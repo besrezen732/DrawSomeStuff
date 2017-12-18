@@ -8,9 +8,11 @@ namespace DrawSomeStuff
 {
     class Helper
     {
-        public string OpenFile(PictureBox pictureBox = null, RichTextBox richTextBox1 = null, ToolStripButton readOneString = null,  ToolStripButton tsbDraw = null)
+        public string OpenFile(PictureBox pictureBox = null, RichTextBox richTextBox1 = null,
+            ToolStripButton readOneString = null, ToolStripButton tsbDraw = null)
         {
             string res = String.Empty;
+            richTextBox1.Clear();
             OpenFileDialog openGerber = new OpenFileDialog();
             openGerber.InitialDirectory = @"C:\";
             openGerber.Filter = @"gbr files (*.grb)|*.grb|All files (*.*)|*.*";
@@ -22,7 +24,7 @@ namespace DrawSomeStuff
                 using (FileStream sourceStream = File.Open(openGerber.FileName, FileMode.Open))
                 {
                     result = new byte[sourceStream.Length];
-                    sourceStream.Read(result, 0, (int)sourceStream.Length);
+                    sourceStream.Read(result, 0, (int) sourceStream.Length);
                 }
                 res = Encoding.ASCII.GetString(result);
                 richTextBox1.Visible = true;

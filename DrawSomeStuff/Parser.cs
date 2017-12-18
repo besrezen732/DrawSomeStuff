@@ -170,5 +170,10 @@ namespace DrawSomeStuff
             y = Convert.ToInt32(onestring.Substring(posYinStr, posDinStr - posYinStr));
             d = Convert.ToInt32(onestring.Substring(posDinStr, Length - posDinStr));
         }
+
+        public void ClearDictionaryAperture()
+        {
+            aperDict.Clear();
+        }
     }
 }
