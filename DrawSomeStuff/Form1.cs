@@ -6,7 +6,7 @@ namespace DrawSomeStuff
 {
     public partial class laptop : Form
     {
-        Parser _Parser;
+        Parser _gerberParser;
         Graphics gr;
         Pen pen;
         SolidBrush brush;
@@ -27,15 +27,13 @@ namespace DrawSomeStuff
             gr = pictureBox.CreateGraphics();
             pen = new Pen(Color.Black, 3);
             brush = new SolidBrush(Color.Black);
-            _Parser = new Parser();
+            _gerberParser = new Parser();
         }
-
         
         private void tsbDraw_Click(object sender, EventArgs e)
         {
             //drawGraphics();
-        }
-        
+        }        
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -58,7 +56,8 @@ namespace DrawSomeStuff
             var service = new Helper();
 
             string oneString = service.GetOneString(stringFile, _numberOfstring);
-            _Parser.Parse(oneString);
+            _gerberParser.Parse(oneString);
+
             richTextBox1.Text += oneString + '\n';
             _numberOfstring++;
             if (oneString == "Конец файла")

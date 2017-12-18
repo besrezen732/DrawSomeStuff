@@ -10,23 +10,15 @@ namespace DrawSomeStuff
 
     class Parser
     {
-        Graphics gr;
-        TextBox tBox;
-        int posX, posY;
-        int max = 0;
         public Parser()
         {
-           // gr = graphics;
-           // tBox = text;
-            //gr.FillRectangle(new SolidBrush(Color.DarkRed), 0, 0, 500, 500);
-
             Aperture ap = new Aperture();
             ap.radEx = 10;
             ap.color = Color.Red;
             curAper = ap;
         }
 
-        Dictionary<string, Aperture> aperDict = new Dictionary<string, Aperture>();
+        Dictionary<string, Aperture> aperDict = new Dictionary<string, Aperture>();// словарь апертур
         Aperture curAper;
         struct Aperture
         {
@@ -38,19 +30,19 @@ namespace DrawSomeStuff
         }
         // переменные для  изменения  в void парсерах 
        
-        private bool _isMm = false; //
-
+        private bool _isMm = false; // милиметры или дюймы
 
         public int i = 0;
-        //список делегатов
-        delegate void ParseGcommand(string command);
 
-        void OF(string command){} // команды типа OF /Offset / смещения /абсолютные 
-        void FSLA(string command){}
-        void IP(string command){} // Тип поляризации
+        #region DelegateList //список делегатов
+
+        delegate void ParseGcommand(string command);
+        void OF(string command) { } // команды типа OF /Offset / смещения /абсолютные 
+        void FSLA(string command) { }
+        void IP(string command) { } // Тип поляризации
 
         //формат команд официальной спецификации 
-        void FS(string command){}
+        void FS(string command) { }
 
         void MO(string command)
         {
@@ -88,41 +80,45 @@ namespace DrawSomeStuff
 
             aperDict.Add(name, ap);
         }
-        void AM(string command){}
-        void AB(string command){}
-        void Dnn(string command){} //(nn≥10)
-        void D01(string command){}
-        void D02(string command){}
-        void D03(string command){}
-        void G01(string command){}
-        void G02(string command){}
-        void G03(string command){}
-        void G74(string command){}
+        void AM(string command) { }
+        void AB(string command) { }
+        void Dnn(string command) { } //(nn≥10)
+        void D01(string command) { }
+        void D02(string command) { }
+        void D03(string command) { }
+        void G01(string command) { }
+        void G02(string command) { }
+        void G03(string command) { }
+        void G74(string command) { }
 
         void G75(string command)
         {
             //выбор квадранта для отображения (рисуем в 1 координатной плоскости или во всех 4 х)
             i = 10;// тест
         }
-        void LP(string command){}
-        void LM(string command){}
-        void LR(string command){}
-        void LS(string command){}
-        void G36(string command){}
-        void G37(string command){}
-        void SR(string command){}
-        void G04(string command){}
-        void TF(string command){}
-        void TA(string command){}
-        void TO(string command){}
-        void TD(string command){}
-        void M02(string command){}
+        void LP(string command) { }
+        void LM(string command) { }
+        void LR(string command) { }
+        void LS(string command) { }
+        void G36(string command) { }
+        void G37(string command) { }
+        void SR(string command) { }
+        void G04(string command) { }
+        void TF(string command) { }
+        void TA(string command) { }
+        void TO(string command) { }
+        void TD(string command) { }
+        void M02(string command) { }
 
         void D(string command)
         {
             command = command.Substring(0, 3);
             curAper = aperDict[command];
         }
+
+
+
+        #endregion
 
         public void Parse(string command)// для текущего тз остальные будут добавлены позже или вообще никогда
         {
