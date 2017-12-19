@@ -55,7 +55,7 @@
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(776, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(847, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -102,7 +102,7 @@
             this.readOneString});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(776, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(847, 27);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -160,16 +160,18 @@
             this.pictureBox.Location = new System.Drawing.Point(13, 59);
             this.pictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(539, 381);
+            this.pictureBox.Size = new System.Drawing.Size(600, 500);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             // 
             // richTextBox1
             // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.richTextBox1.Location = new System.Drawing.Point(583, 58);
+            this.richTextBox1.Location = new System.Drawing.Point(640, 58);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(183, 382);
+            this.richTextBox1.Size = new System.Drawing.Size(197, 503);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
             // 
@@ -180,7 +182,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.BackgroundImage = global::DrawSomeStuff.Properties.Resources.plata;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(776, 453);
+            this.ClientSize = new System.Drawing.Size(847, 574);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pictureBox);

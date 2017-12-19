@@ -10,8 +10,14 @@ namespace DrawSomeStuff
 
     class Parser
     {
-        public Parser()
+        Graphics gr;
+        private PictureBox pBox;
+        
+        public Parser(Graphics graphics,PictureBox pictureBox)
         {
+            ClearDictionaryAperture();
+            gr = graphics;
+            pBox = pictureBox;
             Aperture ap = new Aperture();
             ap.radEx = 10;
             ap.color = Color.Red;
@@ -22,7 +28,7 @@ namespace DrawSomeStuff
         Aperture curAper;
         struct Aperture
         {
-            public int type;
+            public int typeAp;
             public int numberSide;
             public float radEx;
             public float radIn;
@@ -31,6 +37,8 @@ namespace DrawSomeStuff
         // переменные для  изменения  в void парсерах 
        
         private bool _isMm = false; // милиметры или дюймы
+        private int x=0,y=0;
+        
 
         #region DelegateList //список делегатов
 
@@ -57,24 +65,27 @@ namespace DrawSomeStuff
             string type = command.Substring(6, 1);
             if (type == "C")//круг
             {
-                ap.type = 1;
+                ap.typeAp = 1;
                 string radius = command.Substring(11, 3);
                 ap.radEx = Convert.ToSingle(radius);
+                ap.color = Color.Green;
             }
             if (type == "R")//квадрат
             {
-                ap.type = 2;
+                ap.typeAp = 2;
                 string line = command.Substring(11, 3);
                 ap.radEx = Convert.ToSingle(line);
+                ap.color= Color.Red;
             }
             if (command.Substring(6, 2) == "OC")//многогранник после ОС число граней
             {
-                ap.type = 3;
+                ap.typeAp = 3;
                 ap.numberSide = Convert.ToInt32(command.Substring(8, 1));
                 string line = command.Substring(13, 3);
                 ap.radEx = Convert.ToSingle(line);
+                ap.color = Color.Yellow;
             }
-            ap.color = Color.Black;
+            
 
             aperDict.Add(name, ap);
         }
@@ -95,7 +106,47 @@ namespace DrawSomeStuff
                 posYinStr - posXinStr - 1))); //новыя позиция х
             int newY = Convert.ToInt32(StrimTrim(command.Substring(posYinStr,
                 posDinStr - posYinStr - 1))); // новая позиция y
-            string D = command.Substring(posDinStr, Length - posDinStr-2); //тип положения пера
+            string D = command.Substring(posDinStr, Length - posDinStr - 2); //тип положения пера
+
+            //отрисовка
+            switch (D)
+            {
+                case "D01": //перемещение с открытым затвором (линия)
+                    gr.DrawLine(
+                        new Pen(Color.Black, 5),
+                        new Point(x, 200 - y),
+                        new Point((int)(newX *0.052), 200 - (int)(newY *0.11)));
+                    break;
+                case "D02": // с закрытым (телепортация)
+
+                    break;
+                case "D03": //отрисовка апертуры 
+                    switch (curAper.typeAp)
+                    {
+                        case 1:
+                            gr.FillEllipse(
+                                new SolidBrush(curAper.color),
+                                (int)(newX * 0.052), 200 - (int)(newY * 0.11),
+                                20, 20);
+                            break;
+                        case 2:
+                            gr.FillRectangle(
+                                new SolidBrush(curAper.color),
+                                (int)(newX * 0.052), 200 - (int)(newY *0.11),
+                                20, 20);
+                            break;
+                        //case 3:
+                        //    gr.(
+                        //        new SolidBrush(curAper.color),
+                        //        newX / 17 - 100, 200 - newY / 3,
+                        //        30, 30);
+                        //    break;
+                    }
+                    break;
+            }
+            x = (int)(newX *0.052);
+            y = (int)(newY *0.11);
+
         }
 
         void G01(string command) { }

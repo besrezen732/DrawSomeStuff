@@ -27,7 +27,7 @@ namespace DrawSomeStuff
             gr = pictureBox.CreateGraphics();
             pen = new Pen(Color.Black, 3);
             brush = new SolidBrush(Color.Black);
-            _gerberParser = new Parser();
+            _gerberParser = new Parser(gr, pictureBox);
         }
         
         private void tsbDraw_Click(object sender, EventArgs e)
@@ -39,8 +39,9 @@ namespace DrawSomeStuff
         {
             var service = new Helper();
             stringFile = service.OpenFile(pictureBox, richTextBox1, readOneString,tsbDraw);
-            _numberOfstring = 0;
             _gerberParser.ClearDictionaryAperture();
+            _numberOfstring = 0;
+            
             //richTextBox1.Text = stringFile;
         }
 

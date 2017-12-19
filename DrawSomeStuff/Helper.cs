@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Net.Mime;
 using System.Text;
@@ -8,9 +9,13 @@ namespace DrawSomeStuff
 {
     class Helper
     {
-        public string OpenFile(PictureBox pictureBox = null, RichTextBox richTextBox1 = null,
+        public string OpenFile(PictureBox pictureBox , RichTextBox richTextBox1 ,
             ToolStripButton readOneString = null, ToolStripButton tsbDraw = null)
         {
+            Graphics g = pictureBox.CreateGraphics();
+            g.Clear(Color.AliceBlue);
+            pictureBox.BackColor = Color.AliceBlue;
+
             string res = String.Empty;
             richTextBox1.Clear();
             OpenFileDialog openGerber = new OpenFileDialog();
