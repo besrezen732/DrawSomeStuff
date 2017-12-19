@@ -82,20 +82,22 @@ namespace DrawSomeStuff
         void AB(string command) { }
         void Dnn(string command) { } //(nn≥10)
 
-        void D01(string command)
+
+        void D0X(string command)
         {
-            
+            int posXinStr = command.IndexOf("X", StringComparison.Ordinal) + 1;
+            int posYinStr = command.IndexOf("Y", StringComparison.Ordinal) + 1;
+            int posDinStr = command.IndexOf("D", StringComparison.Ordinal);
+            int Length = command.Length;
+
+            // новые позиции для координат StrimTrim
+            int newX = Convert.ToInt32(StrimTrim(command.Substring(posXinStr,
+                posYinStr - posXinStr - 1))); //новыя позиция х
+            int newY = Convert.ToInt32(StrimTrim(command.Substring(posYinStr,
+                posDinStr - posYinStr - 1))); // новая позиция y
+            string D = command.Substring(posDinStr, Length - posDinStr-2); //тип положения пера
         }
 
-        void D02(string command)
-        {
-            
-        }
-
-        void D03(string command)
-        {
-            
-        }
         void G01(string command) { }
         void G02(string command) { }
         void G03(string command) { }
@@ -143,9 +145,7 @@ namespace DrawSomeStuff
                 {@"LPC", LP},
                 {@"AD", AD},
                 {@"AM", AM},
-                {@"D01", D01},
-                {@"D02", D02},
-                {@"D03", D03},
+                {@"D0", D0X},
                 {@"D", D}//по хорошему нужно проверять что строка начинается с D, а пока такой хардкод
 
             };
@@ -155,25 +155,19 @@ namespace DrawSomeStuff
                 var parse = new ParseGcommand(keyCommandString);
                 parse(command);
             }
+            
 
         }
-
-        public void ParseOneStringDraw(string onestring, int paramX, int paramY, ref int x, ref int y, ref int d)
-        {
-            int posXinStr = onestring.IndexOf("X", StringComparison.Ordinal);
-            int posYinStr = onestring.IndexOf("Y", StringComparison.Ordinal);
-            int posDinStr = onestring.IndexOf("D", StringComparison.Ordinal);
-            int Length = onestring.Length;
-
-            // новые позиции для координат
-            x = Convert.ToInt32(onestring.Substring(posXinStr, posYinStr - posXinStr));
-            y = Convert.ToInt32(onestring.Substring(posYinStr, posDinStr - posYinStr));
-            d = Convert.ToInt32(onestring.Substring(posDinStr, Length - posDinStr));
-        }
-
         public void ClearDictionaryAperture()
         {
             aperDict.Clear();
+        }
+
+        public string StrimTrim(string command)
+        {
+            while (command.StartsWith("0"))
+                command = command.TrimStart('0');
+            return command;
         }
     }
 }

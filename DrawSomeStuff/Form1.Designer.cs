@@ -142,8 +142,9 @@
             // 
             // readOneString
             // 
+            this.readOneString.BackColor = System.Drawing.Color.Ivory;
             this.readOneString.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.readOneString.Image = ((System.Drawing.Image)(resources.GetObject("readOneString.Image")));
+            this.readOneString.Image = global::DrawSomeStuff.Properties.Resources.кисть;
             this.readOneString.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.readOneString.Name = "readOneString";
             this.readOneString.Size = new System.Drawing.Size(24, 24);
