@@ -52,13 +52,14 @@ namespace DrawSomeStuff
             return (numberOfString > maxNumber - 1) ? "Конец файла" : oneString[numberOfString];
         }
 
-        public void GetProportion(string gerberFile, PictureBox pBox, ref double proportionX, ref double proportionY)
+        public void GetProportion(string gerberFile, PictureBox pBox, ref double proportion)
         {
             int numberOfString = 0;
             string[] oneString = gerberFile.Split(new char[] {'\n'}, StringSplitOptions.RemoveEmptyEntries);
             int maxNumber = oneString.Length;
             int x = 0;
             int y = 0;
+            int z = 0;
             while (numberOfString < maxNumber)
             {
                 var res = oneString[numberOfString];
@@ -74,13 +75,16 @@ namespace DrawSomeStuff
                         posDinStr - posYinStr))); // новая позиция y
                     x = Math.Max(x, newX);
                     y = Math.Max(y, newY);
+                    
                 }
                 numberOfString++;
+                z = Math.Max(x, y);
             }
-            if (x != 0 && y != 0)
+            if (z != 0 )
             {
-                proportionX = (double)(pBox.Size.Width-200) / x;
-                proportionY = (double)(pBox.Size.Height-100) / y;
+                int propPb = Math.Min(pBox.Height, pBox.Width);
+                proportion = (double)(propPb-100) / z;
+                
             }
         }
     }

@@ -11,7 +11,7 @@ namespace DrawSomeStuff
         Pen pen;
         SolidBrush brush;
         private string stringFile;
-        public double proportionX , proportionY ;
+        public double proportion ;
 
         public laptop()
         {
@@ -27,7 +27,7 @@ namespace DrawSomeStuff
             gr = pictureBox.CreateGraphics();
             pen = new Pen(Color.Black, 3);
             brush = new SolidBrush(Color.Black);
-            _gerberParser = new Parser(gr, pictureBox, proportionX, proportionY);
+            _gerberParser = new Parser(gr, pictureBox, proportion);
         }
         
         private void tsbDraw_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace DrawSomeStuff
             var service = new Helper();
             stringFile = service.OpenFile(pictureBox, richTextBox1, readOneString,tsbDraw);
             if (stringFile!=string.Empty)
-                service.GetProportion(stringFile,pictureBox,ref proportionX , ref proportionY);
+                service.GetProportion(stringFile,pictureBox,ref proportion);
             initGraphics();
             _gerberParser.ClearDictionaryAperture();
             _numberOfstring = 0;
@@ -55,7 +55,7 @@ namespace DrawSomeStuff
             var service = new Helper();
             stringFile = service.OpenFile(pictureBox, richTextBox1, readOneString, tsbDraw);
             if (stringFile != string.Empty)
-                service.GetProportion(stringFile, pictureBox, ref proportionX, ref proportionY);
+                service.GetProportion(stringFile, pictureBox, ref proportion);
             initGraphics();
             _gerberParser.ClearDictionaryAperture();
             _numberOfstring = 0;

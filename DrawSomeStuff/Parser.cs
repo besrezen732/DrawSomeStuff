@@ -12,10 +12,10 @@ namespace DrawSomeStuff
     {
         Graphics gr;
         private PictureBox pBox;
-        private double pX, pY;
+        private double prop;
        
         
-        public Parser(Graphics graphics = null,PictureBox pictureBox = null, double proportionX = 0.0 , double proportionY = 0.0)
+        public Parser(Graphics graphics = null,PictureBox pictureBox = null, double proportion = 0.0)
         {
             ClearDictionaryAperture();
             gr = graphics;
@@ -24,8 +24,7 @@ namespace DrawSomeStuff
             ap.radEx = 10;
             ap.color = Color.Red;
             curAper = ap;
-            pX = proportionX;
-            pY = proportionY;
+            prop = proportion;
         }
 
         Dictionary<string, Aperture> aperDict = new Dictionary<string, Aperture>();// словарь апертур
@@ -118,8 +117,8 @@ namespace DrawSomeStuff
                 case "D01": //перемещение с открытым затвором (линия)
                     gr.DrawLine(
                         new Pen(Color.Black, 5),
-                        new Point(x+10, 410 - y),
-                        new Point((int)(newX *pX)+10, 410 - (int)(newY *pY)));
+                        new Point(x+10, (pBox.Height-100)+10 - y),
+                        new Point((int)(newX * prop) +10, (pBox.Height-100)+10 - (int)(newY * prop)));
                     break;
                 case "D02": // с закрытым (телепортация)
 
@@ -130,28 +129,23 @@ namespace DrawSomeStuff
                         case 1:
                             gr.FillEllipse(
                                 new SolidBrush(curAper.color),
-                                (int)(newX * pX)+1, 400 - (int)(newY * pY),
-                                20, 20);
+                                (int)(newX * prop), (pBox.Height-100) - (int)(newY * prop),
+                                20,20);
                             break;
                         case 2:
                             gr.FillRectangle(
                                 new SolidBrush(curAper.color),
-                                (int)(newX * pX)+1, 400 - (int)(newY * pY),
+                                (int)(newX * prop), (pBox.Height-100) - (int)(newY * prop),
                                 20, 20);
                             break;
                         //case 3:
-                        //    gr.(
-                        //        new SolidBrush(curAper.color),
-                        //        newX / 17 - 100, 200 - newY / 3,
-                        //        30, 30);
+                        //    gr.DrawPolygon()
                         //    break;
                     }
                     break;
-                    
-
             }
-            x = (int)(newX * pX);
-            y = (int)(newY * pY);
+            x = (int)(newX * prop);
+            y = (int)(newY * prop);
 
         }
 
@@ -226,5 +220,7 @@ namespace DrawSomeStuff
                 command = command.TrimStart('0');
             return command;
         }
+
+        
     }
 }
