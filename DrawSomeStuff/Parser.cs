@@ -105,7 +105,7 @@ namespace DrawSomeStuff
             int newX = Convert.ToInt32(StrimTrim(command.Substring(posXinStr,
                 posYinStr - posXinStr - 1))); //новыя позиция х
             int newY = Convert.ToInt32(StrimTrim(command.Substring(posYinStr,
-                posDinStr - posYinStr - 1))); // новая позиция y
+                posDinStr - posYinStr ))); // новая позиция y
             string D = command.Substring(posDinStr, Length - posDinStr - 2); //тип положения пера
 
             //отрисовка
@@ -114,8 +114,8 @@ namespace DrawSomeStuff
                 case "D01": //перемещение с открытым затвором (линия)
                     gr.DrawLine(
                         new Pen(Color.Black, 5),
-                        new Point(x, 200 - y),
-                        new Point((int)(newX *0.052), 200 - (int)(newY *0.11)));
+                        new Point(x+20, 420 - y),
+                        new Point((int)(newX *0.052)+20, 420 - (int)(newY *0.11)));
                     break;
                 case "D02": // с закрытым (телепортация)
 
@@ -126,14 +126,14 @@ namespace DrawSomeStuff
                         case 1:
                             gr.FillEllipse(
                                 new SolidBrush(curAper.color),
-                                (int)(newX * 0.052), 200 - (int)(newY * 0.11),
-                                20, 20);
+                                (int)(newX * 0.052), 400 - (int)(newY * 0.11),
+                                40, 40);
                             break;
                         case 2:
                             gr.FillRectangle(
                                 new SolidBrush(curAper.color),
-                                (int)(newX * 0.052), 200 - (int)(newY *0.11),
-                                20, 20);
+                                (int)(newX * 0.052), 400 - (int)(newY *0.11),
+                                40, 40);
                             break;
                         //case 3:
                         //    gr.(
@@ -143,6 +143,8 @@ namespace DrawSomeStuff
                         //    break;
                     }
                     break;
+                    
+
             }
             x = (int)(newX *0.052);
             y = (int)(newY *0.11);
