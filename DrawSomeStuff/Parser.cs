@@ -138,9 +138,9 @@ namespace DrawSomeStuff
                                 (int)(newX * prop), (pBox.Height-100) - (int)(newY * prop),
                                 20, 20);
                             break;
-                        //case 3:
-                        //    gr.DrawPolygon()
-                        //    break;
+                        case 3:
+                            DrawRegularPolygon(new PointF((int)(newX * prop) + 10, (pBox.Height - 100) - (int)(newY * prop) + 10), curAper.numberSide, 40, gr);
+                            break;
                     }
                     break;
             }
@@ -220,7 +220,20 @@ namespace DrawSomeStuff
                 command = command.TrimStart('0');
             return command;
         }
+        private static void DrawRegularPolygon(PointF center, // Координаты центра окружности
+            int vertexes, // Количество вершин
+            float radius, // Радиус
+            Graphics graphics)
+        {
+            var angle = Math.PI * 2 / vertexes;
 
-        
+            var points = Enumerable.Range(0, vertexes)
+                .Select(i => PointF.Add(center, new SizeF((float)Math.Sin(i * angle) * radius, (float)Math.Cos(i * angle) * radius)));
+
+            graphics.DrawPolygon(Pens.Black, points.ToArray());
+            //graphics.DrawEllipse(Pens.Aqua, new RectangleF(PointF.Subtract(center, new SizeF(radius, radius)), new SizeF(radius * 2, radius * 2)));
+        }
+
+
     }
 }
