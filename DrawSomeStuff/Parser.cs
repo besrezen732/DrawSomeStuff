@@ -12,8 +12,10 @@ namespace DrawSomeStuff
     {
         Graphics gr;
         private PictureBox pBox;
+        private double pX, pY;
+       
         
-        public Parser(Graphics graphics,PictureBox pictureBox)
+        public Parser(Graphics graphics = null,PictureBox pictureBox = null, double proportionX = 0.0 , double proportionY = 0.0)
         {
             ClearDictionaryAperture();
             gr = graphics;
@@ -22,6 +24,8 @@ namespace DrawSomeStuff
             ap.radEx = 10;
             ap.color = Color.Red;
             curAper = ap;
+            pX = proportionX;
+            pY = proportionY;
         }
 
         Dictionary<string, Aperture> aperDict = new Dictionary<string, Aperture>();// словарь апертур
@@ -114,8 +118,8 @@ namespace DrawSomeStuff
                 case "D01": //перемещение с открытым затвором (линия)
                     gr.DrawLine(
                         new Pen(Color.Black, 5),
-                        new Point(x+20, 420 - y),
-                        new Point((int)(newX *0.052)+20, 420 - (int)(newY *0.11)));
+                        new Point(x+10, 410 - y),
+                        new Point((int)(newX *pX)+10, 410 - (int)(newY *pY)));
                     break;
                 case "D02": // с закрытым (телепортация)
 
@@ -126,14 +130,14 @@ namespace DrawSomeStuff
                         case 1:
                             gr.FillEllipse(
                                 new SolidBrush(curAper.color),
-                                (int)(newX * 0.052), 400 - (int)(newY * 0.11),
-                                40, 40);
+                                (int)(newX * pX)+1, 400 - (int)(newY * pY),
+                                20, 20);
                             break;
                         case 2:
                             gr.FillRectangle(
                                 new SolidBrush(curAper.color),
-                                (int)(newX * 0.052), 400 - (int)(newY *0.11),
-                                40, 40);
+                                (int)(newX * pX)+1, 400 - (int)(newY * pY),
+                                20, 20);
                             break;
                         //case 3:
                         //    gr.(
@@ -146,8 +150,8 @@ namespace DrawSomeStuff
                     
 
             }
-            x = (int)(newX *0.052);
-            y = (int)(newY *0.11);
+            x = (int)(newX * pX);
+            y = (int)(newY * pY);
 
         }
 
