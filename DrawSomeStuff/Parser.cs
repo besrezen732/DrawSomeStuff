@@ -108,7 +108,7 @@ namespace DrawSomeStuff
             int newX = Convert.ToInt32(StrimTrim(command.Substring(posXinStr,
                 posYinStr - posXinStr - 1))); //новыя позиция х
             int newY = Convert.ToInt32(StrimTrim(command.Substring(posYinStr,
-                posDinStr - posYinStr ))); // новая позиция y
+                posDinStr - posYinStr))); // новая позиция y
             string D = command.Substring(posDinStr, Length - posDinStr - 2); //тип положения пера
 
             //отрисовка
@@ -117,8 +117,8 @@ namespace DrawSomeStuff
                 case "D01": //перемещение с открытым затвором (линия)
                     gr.DrawLine(
                         new Pen(Color.Black, 5),
-                        new Point(x+10, (pBox.Height-100)+10 - y),
-                        new Point((int)(newX * prop) +10, (pBox.Height-100)+10 - (int)(newY * prop)));
+                        new Point(x , (pBox.Height - 100) +  - y),
+                        new Point((int)(newX * prop), (pBox.Height - 100)  - (int)(newY * prop)));
                     break;
                 case "D02": // с закрытым (телепортация)
 
@@ -129,17 +129,17 @@ namespace DrawSomeStuff
                         case 1:
                             gr.FillEllipse(
                                 new SolidBrush(curAper.color),
-                                (int)(newX * prop), (pBox.Height-100) - (int)(newY * prop),
-                                20,20);
+                                (int)(newX * prop) - (int)(curAper.radEx * prop)/2, (pBox.Height - 100) - (int)(newY * prop) - (int)(curAper.radEx * prop)/2,
+                                (int)(curAper.radEx * prop), (int)(curAper.radEx * prop));
                             break;
                         case 2:
                             gr.FillRectangle(
                                 new SolidBrush(curAper.color),
-                                (int)(newX * prop), (pBox.Height-100) - (int)(newY * prop),
-                                20, 20);
+                                (int)(newX * prop) - (int)(curAper.radEx * prop) / 2, (pBox.Height - 100) - (int)(newY * prop) - (int)(curAper.radEx * prop) / 2,
+                                 (int)(curAper.radEx * prop), (int)(curAper.radEx * prop));
                             break;
                         case 3:
-                            DrawRegularPolygon(new PointF((int)(newX * prop) + 10, (pBox.Height - 100) - (int)(newY * prop) + 10), curAper.numberSide, 40, gr);
+                            DrawRegularPolygon(new PointF((int)(newX * prop), (pBox.Height - 100) - (int)(newY * prop) ), curAper.numberSide, (int)((curAper.radEx/2)* prop), gr);
                             break;
                     }
                     break;
@@ -230,7 +230,7 @@ namespace DrawSomeStuff
             var points = Enumerable.Range(0, vertexes)
                 .Select(i => PointF.Add(center, new SizeF((float)Math.Sin(i * angle) * radius, (float)Math.Cos(i * angle) * radius)));
 
-            graphics.DrawPolygon(Pens.Black, points.ToArray());
+            graphics.FillPolygon(new SolidBrush(Color.DarkOrange), points.ToArray());
             //graphics.DrawEllipse(Pens.Aqua, new RectangleF(PointF.Subtract(center, new SizeF(radius, radius)), new SizeF(radius * 2, radius * 2)));
         }
 

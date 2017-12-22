@@ -21,9 +21,8 @@ namespace DrawSomeStuff
             string res = String.Empty;
             richTextBox1.Clear();
             OpenFileDialog openGerber = new OpenFileDialog();
-            openGerber.InitialDirectory = @"C:\";
-            openGerber.Filter = @"gbr files (*.grb)|*.grb|All files (*.*)|*.*";
-            openGerber.FilterIndex = 2;
+            
+            
             openGerber.RestoreDirectory = true;
             if (openGerber.ShowDialog() == DialogResult.OK)
             {

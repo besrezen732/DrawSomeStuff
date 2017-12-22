@@ -16,6 +16,7 @@ namespace DrawSomeStuff
         public laptop()
         {
             InitializeComponent();
+            this.Size = new Size(1200,800);
             richTextBox1.Visible = false;
             pictureBox.Visible = false;
             readOneString.Enabled = false;
@@ -32,7 +33,7 @@ namespace DrawSomeStuff
         
         private void tsbDraw_Click(object sender, EventArgs e)
         {
-            //drawGraphics();
+            
         }        
 
         //открыть файл через меню
